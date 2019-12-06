@@ -17,14 +17,14 @@ class Quiz extends StatelessWidget {
     return Column(
       children: [
         Question(questions[questionIndex]['questionText']),
-        Answer(changeQuestion,
-            (questions[questionIndex]['optionText'] as List<String>)[0]),
-        Answer(changeQuestion,
-            (questions[questionIndex]['optionText'] as List<String>)[1]),
-        Answer(changeQuestion,
-            (questions[questionIndex]['optionText'] as List<String>)[2]),
-        Answer(changeQuestion,
-            (questions[questionIndex]['optionText'] as List<String>)[3]),
+        Answer(() => changeQuestion((questions[questionIndex]['optionText'] as List<Map<String, Object>>)[0]['score']),
+            (questions[questionIndex]['optionText'] as List<Map<String, Object>>)[0]['text']),
+        Answer(() => changeQuestion((questions[questionIndex]['optionText'] as List<Map<String, Object>>)[1]['score']),
+            (questions[questionIndex]['optionText'] as List<Map<String, Object>>)[1]['text']),
+        Answer(() => changeQuestion((questions[questionIndex]['optionText'] as List<Map<String, Object>>)[2]['score']),
+            (questions[questionIndex]['optionText'] as List<Map<String, Object>>)[2]['text']),
+        Answer(() => changeQuestion((questions[questionIndex]['optionText'] as List<Map<String, Object>>)[3]['score']),
+            (questions[questionIndex]['optionText'] as List<Map<String, Object>>)[3]['text']),
       ],
     );
   }

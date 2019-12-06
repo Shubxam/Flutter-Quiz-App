@@ -15,7 +15,9 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
-  void _changeQuestion() {
+  var fScore = 0;
+  void _changeQuestion(int cScore) {
+    fScore += cScore;
     setState(() {
       _questionIndex += 1;
     });
@@ -24,15 +26,15 @@ class _MyAppState extends State<MyApp> {
   static const _questions = [
     {
       'questionText': "What is your favourite movie?",
-      'optionText': ['3 Idiots', 'War', 'Dabangg', 'PK'],
+      'optionText': [{'text' : '3 Idiots', 'score' : 8}, {'text' : 'War', 'score' : 6}, {'text' : 'Dabangg', 'score' : 2}, {'text' : 'PK', 'score' : 9}],
     },
     {
       'questionText': "What is your favourite food?",
-      'optionText': ['Pav Bhaji', 'Aloo Paratha', 'Pizza', 'Biryani'],
+      'optionText': [{'text' : 'Pav Bhaji', 'score' : 8}, {'text' : 'Aloo Paratha', 'score' : 6}, {'text' : 'Pizza', 'score' : 2}, {'text' : 'Biryani', 'score' : 9}],
     },
     {
       'questionText': "Who is your favourite Actor?",
-      'optionText': ['Ayushman', 'Hritik', 'Salman', 'Aamir'],
+      'optionText': [{'text' : 'Ayushman', 'score' : 9}, {'text' : 'Hritik', 'score' : 10}, {'text' : 'Salman', 'score' : 2}, {'text' : 'Aamir', 'score' : 9}],
     },
   ];
   @override
@@ -47,7 +49,7 @@ class _MyAppState extends State<MyApp> {
                   questionIndex: _questionIndex,
                   questions: _questions,
                 )
-              : Result(),
+              : Result(fScore),
         ),
       );
 }
