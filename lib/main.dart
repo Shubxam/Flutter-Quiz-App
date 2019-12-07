@@ -23,6 +23,13 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  void resetProgress(){
+    setState(() {
+      _questionIndex = 0;
+      fScore = 0;
+    });
+  }
+
   static const _questions = [
     {
       'questionText': "What is your favourite movie?",
@@ -49,7 +56,7 @@ class _MyAppState extends State<MyApp> {
                   questionIndex: _questionIndex,
                   questions: _questions,
                 )
-              : Result(fScore),
+              : Result(fScore, resetProgress),
         ),
       );
 }
